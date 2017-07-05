@@ -74,7 +74,9 @@
     </Compile>
     <Compile Include="ProcessIcon.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleInstance.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
