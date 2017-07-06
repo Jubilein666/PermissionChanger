@@ -6,7 +6,8 @@ namespace PermissionChanger
 {
     class ProcessIcon : IDisposable
     {
-        NotifyIcon notifyIcon;
+        private NotifyIcon notifyIcon;
+        private ProcessIconContextMenu processIconContextMenu;
 
         public ProcessIcon()
         {
@@ -20,14 +21,17 @@ namespace PermissionChanger
             notifyIcon.Text = "PermissionSwitch Application";
             notifyIcon.Visible = true;
             notifyIcon.Icon = Resources.Shield;
-            var processIconContextMenu = new ProcessIconContextMenu();
+            processIconContextMenu = new ProcessIconContextMenu();
             notifyIcon.ContextMenuStrip = processIconContextMenu.Create();
             processIconContextMenu.TriggerOpen();
         }
 
         private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            throw new NotImplementedException();
+            if(e.Button == MouseButtons.Left)
+            {
+                processIconContextMenu?.TriggerOpen();
+            }
         }
 
         public void Dispose()
